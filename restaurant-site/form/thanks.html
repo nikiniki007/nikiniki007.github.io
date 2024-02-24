@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レストランサイト制作｜サンクスページ</title><!-- ←トップページと間違えないように！ -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><!-- Live serverで余白がキュッとなっているか確認 -->
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <link rel="stylesheet" href="../css/hamburgers.css"><!-- ハンバーガーメニューを動かすためのcss -->
+<!-- lightboxのリンクだけ消す。他のcssは../cssにする -->
+
+</head>
+
+<body id="top"><!-- bodyにid topつけておく -->
+ <header>
+  <h1>オステリア・ラ・タベルナ</h1><!-- 店舗名 -->
+  <p class="tag-line">イタリアの郷土料理と温かいおもてなし</p><!-- タグライン -->
+ </header>
+
+
+ <p class="hamburger hamburger--spin" id="btn"><!-- ハンバーガーメニュー(1/16ブログより) -->
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</p>
+
+
+<nav id="g-nav">
+  <div class="nav-inner">
+  <ul class="nav-list"><!-- ulに名前nav-listをつけておく -->
+ <ul>
+  <li><a href="../" data-en="TOP">トップ</a></li><!-- enはEnglishの略 -->
+  <li><a href="../index.html#news" data-en="NEWS">お知らせ</a></li>
+  <li><a href="../index.html#menu" data-en="MENU">メニュー</a></li>
+  <li><a href="../index.html#video" data-en="VIDEO">動画</a></li>
+  <li><a href="../index.html#shop" data-en="SHOP">店舗情報</a></li>
+  <li><a href="index.html#form" data-en="RESERVE">ご予約</a></li><!-- 6つの項目。ご予約のみ別ページに移る -->
+ </ul><!-- ↑index.html#formに変える -->
+
+ <div class="sns-wrapper"><!-- SNS(facebookなど)のリンク -->
+  <p><a href="#">Instagram</a></p>
+  <p><a href="#">Facebook</a></p>
+  <p><a href="#">LINE</a></p>
+  <p><a href="#">X</a></p>
+
+ </div>
+ </div>
+ 
+</nav>
+
+
+<main>
+<div class="thanks-text">
+<h2>ご予約ありがとうございました。</h2>
+<p>ご来店をお待ちしております。</p>
+</div>
+</main>
+
+
+
+<footer>
+<p><small>&copy; <span id="this-year"></span>オステリア・ラ・タベルナ</small></p>
+</footer>
+
+<!-- ↓jquery本体が必ず必要（1個だけ！）。Google cdnもしくはShift + Ctrl + p -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+<script src="../js/jquery.bxslider.js"></script><!-- scriptタグ。リンクだけどlinkではない -->
+<!-- jsリンクは下に配置。cssとは逆 -->
+<!-- lightboxのリンクだけ消す -->
+
+
+<script>//scriptは3セット必要
+$(function(){
+//メインビジュアル
+$('.bxslider').bxSlider({ //←Sは必ず大文字！決められた名前(関数)を指定
+mode: 'fade',//horizontalからautoに変換。動きのコントロールはjs、見た目のコントロールはcssから
+auto: true,
+infiniteLoop: false,
+controls: false,/* autoかcontrolどちらか。「,」なのはjqueryの中のjsなので*/
+pager: false,//画面の下にある黒い丸
+});
+
+//外部ファイルを呼び出す。
+$('#news-list').load('news.txt');/* ←#付け忘れ注意！ */
+
+
+//カルーセル
+$('.bxslider2').bxSlider({/* bx2はulの場所と名前。後ろのSが大文字の方には2は付けない*/
+ticker: true,//jq.bxslider.jsからticker: false,をコピーで引っ張ってオン（true）にする
+speed: 50000,
+minSlides: 2,
+maxSlides: 6,
+slideWidth: 320,
+});
+
+
+//西暦の取得
+let fullyear = new Date().getFullYear();//FとYは必ず大文字！
+/* fullyear = 2026 ←確かめ用。フッターに2024-2026と表示される*/
+if(fullyear > 2024){//2024を超過したら
+$('#this-year').text('2024-' +fullyear);
+}else{
+$('#this-year').text(fullyear);
+}
+//2024 - その時の西暦
+
+
+//ナビゲーション
+//ナビゲーションをまず隠す(hide)
+$('#g-nav').hide();
+
+
+
+//ハンバーガーボタン
+//#btnをon.clickしたら
+$('#btn').on('click',function(){
+$(this).toggleClass('is-active');//thisに''は入れない。toggleClassはキャメルケース
+$('#g-nav').fadeToggle(200);/* 200ミリ秒。スマホの場合はslideToggleも候補*/
+});
+
+
+//#g-nav aをon.clickしたら
+$('#g-nav a').on('click',function(){
+$('#g-nav').fadeOut(200);/* クリックするとナビゲーションが消える処理 */
+$('#btn').removeClass('is-active');/* マークをxから三に戻す(処理しないとボタン押した後もxのまま) */
+});
+
+
+
+
+}); 
+</script>
+
+</body>
+</html>

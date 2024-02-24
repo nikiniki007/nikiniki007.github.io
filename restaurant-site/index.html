@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レストランサイト制作｜トップページ</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"><!-- Live serverで余白がキュッとなっているか確認 -->
+    <link rel="stylesheet" href="css/jquery.bxslider.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/hamburgers.css"><!-- ハンバーガーメニューを動かすためのcss -->
+   
+   <link rel="shortcut icon" href="favicon.png" ><!-- ico→pngにする。type="image/x-icon"は要らないので消す -->
+   <link rel="apple-touch-icon" href="touch-icon.png"><!-- ios用のタッチアイコン -->
+   <link rel="manifest" href="manifest.webmanifest"><!-- android用、json→webmanifestにする -->
+  <meta name="apple-mobile-web-app-title" content="オステリア"><!-- ios用 -->
+  <meta name="application-name" content="オステリア"><!-- android用 -->
+
+
+</head>
+
+<body id="top"><!-- bodyにid topつけておく -->
+ <header>
+  <h1>オステリア・ラ・タベルナ</h1><!-- 店舗名 -->
+  <p class="tag-line">イタリアの郷土料理と温かいおもてなし</p><!-- タグライン -->
+ </header>
+
+
+ <p class="hamburger hamburger--spin" id="btn"><!-- ハンバーガーメニュー(1/16ブログより) -->
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</p>
+
+
+<nav id="g-nav">
+ <div class="nav-inner">
+ <ul class="nav-list"><!-- ulに名前nav-listをつけておく -->
+  <li><a href="#top" data-en="TOP">トップ</a></li><!-- enはEnglishの略 -->
+  <li><a href="#news" data-en="NEWS">お知らせ</a></li>
+  <li><a href="#menu" data-en="MENU">メニュー</a></li>
+  <li><a href="#video" data-en="VIDEO">動画</a></li>
+  <li><a href="#shop" data-en="SHOP">店舗情報</a></li>
+  <li><a href="form/index.html#form" data-en="RESERVE">ご予約</a></li><!-- 6つの項目。ご予約のみ別ページに移る -->
+ </ul><!-- ↑section id="form"に移動できる。formのリンク先は別のページ(フォルダ)なので#はつけない -->
+
+<div class="sns-wrapper"><!-- SNS(facebookなど)のリンク -->
+ <p><a href="#">Instagram</a></p>
+ <p><a href="#">Facebook</a></p>
+ <p><a href="#">LINE</a></p>
+ <p><a href="#">X</a></p>
+
+</div>
+</div>
+
+</nav>
+
+<div class="main-visual">
+  <ul class="bxslider"><!-- bxsliderのサイトから引っ張る -->
+    <li><img src="/img/main-1.webp" /></li><!-- imagesテンプレから自前のimg(webp)に変換 -->
+    <li><img src="/img/main-2.webp" /></li>
+    <li><img src="/img/main-3.webp" /></li>
+  </ul>
+</div>
+
+<div class="main-copy">
+ <h2>イタリア各地の郷土料理と、<br>
+温かいおもてなしが魅力的なオステリア。</h2>
+ <p class="lead">下北沢の奥まった路地裏にあるオステリア・ラ・タベルナ。<br>
+店内はまるでイタリアの田舎家に招かれたようなアットホームな雰囲気で、<br class="sp">イタリア各地の郷土料理を味わえます。<br>
+気さくな店主との会話も楽しみの一つです。</p>
+</div>
+
+<div class="gallery">
+ <p><img src="img/gallery-1.jpg" alt=""></p>
+ <p><img src="img/gallery-2.jpg" alt=""></p>
+</div>
+
+<main>
+ <section id="news"><!-- id内で英語を使うときは必ず小文字 -->
+  <h2 data-en="NEWS">お知らせ</h2>
+   <dl id="news-list">
+
+   </dl>
+ </section>
+
+<div class="parallax-1"></div><!-- パララックス1(視差効果) -->
+
+
+
+
+ <section id="menu">
+  <h2 data-en="MENU">メニュー</h2>
+   <div class="menu-wrapper">
+  <div class="menu-box"><!-- この辺、スペルミス注意！dateではない -->
+   <a href="img/menu-1.jpg" data-lightbox="menu" data-title="画像のタイトル">
+    <!-- ↑deta-lightboxは、lightboxを実装する上で必要！、モーダルウィンドウ。クリックしたら大きい画像が出る -->
+    <p class="photo"><img src="img/menu-1.jpg" alt=""></p>
+    <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+   </a><!-- aタグの中にpを入れる -->
+  </div><!-- /.menu-box -->
+
+  <div class="menu-box"><!-- boxを6個分つくる -->
+    <a href="img/menu-2.jpg" data-lightbox="menu">
+     <p class="photo"><img src="img/menu-2.jpg" alt=""></p>
+     <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+    </a>
+   </div><!-- /.menu-box -->
+
+   <div class="menu-box">
+    <a href="img/menu-3.jpg" data-lightbox="menu">
+     <p class="photo"><img src="img/menu-3.jpg" alt=""></p>
+     <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+    </a>
+   </div><!-- /.menu-box -->
+
+   <div class="menu-box">
+    <a href="img/menu-4.jpg" data-lightbox="menu">
+     <p class="photo"><img src="img/menu-4.jpg" alt=""></p>
+     <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+    </a>
+   </div><!-- /.menu-box -->
+
+   <div class="menu-box">
+    <a href="img/menu-5.jpg" data-lightbox="menu">
+     <p class="photo"><img src="img/menu-5.jpg" alt=""></p>
+     <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+    </a>
+   </div><!-- /.menu-box -->
+
+   <div class="menu-box">
+    <a href="img/menu-6.jpg" data-lightbox="menu">
+     <p class="photo"><img src="img/menu-6.jpg" alt=""></p>
+     <p class="menu-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nam.</p>
+    </a>
+   </div><!-- /.menu-box -->
+
+
+   </div><!-- /.menu-wrapper -->
+ </section>
+
+ <section id="video">
+  <h2 data-en="VIDEO">動画</h2>
+  <div class="video-wrapper"><!-- ↓heightとwidthは消す -->
+    <iframe src="https://www.youtube.com/embed/RRfUKzMnFOM?si=vmATk955CiK1Djel" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div><!-- /.video-wrapper -->
+ </section>
+
+ <Section id="shop">
+  <h2 data-en="SHOP">店舗情報</h2>
+  <div class="map-wrapper">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12955.781862090324!2d139.7143152!3d35.7275597!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d68f6cfe057%3A0xddd17dcd7ecaf745!2z6LGK5bO25Yy656uL5Y2X5rGg6KKL5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1706775387188!5m2!1sja!2sjp"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- ↑width="600" height="450"部分は削除しておかないとcss(.map-wrapper)で値を編集できない-->
+  </div>
+
+  <div class="shop-wrapper">
+   <dl><!-- 1個目のdl -->
+    <dt>〒</dt><dd>176-0000</dd>
+    <dt>住所</dt><dd>東京都豊島区南池袋</dd>
+    <dt>Tel</dt><dd><a class="tel-num" href="tel:03-1111-1111">03-1111-1111</a></dd> <!-- tel:電話のリンク。ddの中をaで囲む -->
+    <dt>Mail</dt><dd>aaa@bbbb.com</dd> 
+   </dl>
+   
+   <dl><!-- 2個目のdl -->
+    <dt>Lunch</dt><dd>11:30~15:30</dd>
+    <dt>Dinner</dt><dd>17:30~23:00</dd>
+    <dt>定休日</dt><dd>年末年始</dd> 
+    <dt>総席数</dt><dd>120席</dd>
+   </dl>
+  </div>
+
+
+ </Section>
+ <div class="parallax-2"></div><!-- パララックス2 -->
+
+<section id="faq">
+ <h2 data-en="FAQ">よくある質問</h2><!-- アコーディオンパネル -->
+
+ <details open name="faq"><!-- ディテールで全体を囲む。open = 最初から回答も開かれた状態にできる -->
+  <summary>Q:予約は必要ですか？</summary><!-- サマリー(質問部分を囲む。detailsの中に入れる) -->
+  <p class="answer">A:お席の状況により異なりますが、ランチタイムは比較的空いているので、予約なしでもご来店いただけます。
+  ディナータイムは混雑することが予想されますので、事前予約をおすすめいたします。</p>
+ </details>
+ 
+ <details name="faq"><!-- ネーム属性 -->
+  <summary>Q:子供連れでも大丈夫ですか？</summary>
+  <p class="answer">A:はい、お子様連れでも歓迎いたします。お子様用の椅子や食器もご用意しておりますので、お気軽にご利用ください。</p>
+ </details>
+
+ <details name="faq">
+  <summary>Q:支払い方法は？</summary>
+  <p class="answer">A:現金、クレジットカード、各種電子マネーに対応しております。</p>
+ </details>
+
+ <details name="faq">
+  <summary>Q:テイクアウトはできますか？</summary>
+  <p class="answer">A:。はい、一部のメニューを除いてテイクアウト可能です。事前にご予約いただけると、スムーズにお受け渡しできます。</p>
+ </details>
+
+</section>
+
+
+ <!-- <section id="reserve">
+  <h2 data-en="RESERVE">ご予約</h2>
+ </section> -->
+
+</main>
+
+<div class="carousel"><!-- カルーセルは/mainとheaderの間に入れる -->
+ <ul class="bxslider2">
+  <li><img src="img/gallery-1.jpg" alt=""></li>
+  <li><img src="img/gallery-2.jpg" alt=""></li>
+  <li><img src="img/menu-1.jpg" alt=""></li>
+  <li><img src="img/menu-2.jpg" alt=""></li>
+  <li><img src="img/menu-3.jpg" alt=""></li>
+  <li><img src="img/menu-4.jpg" alt=""></li>
+  <li><img src="img/menu-5.jpg" alt=""></li>
+  <li><img src="img/menu-6.jpg" alt=""></li>
+ </ul>
+</div>
+
+
+<footer>
+<p><small>&copy; <span id="this-year"></span>オステリア・ラ・タベルナ</small></p>
+</footer>
+
+<!-- ↓jquery本体が必ず必要（1個だけ！）。Google cdnもしくはShift + Ctrl + p -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+<script src="js/jquery.bxslider.js"></script><!-- scriptタグ。リンクだけどlinkではない -->
+<script src="js/lightbox.js"></script><!-- jsリンクは下に配置。cssとは逆 -->
+
+
+<script>//scriptは3セット必要
+$(function(){
+//メインビジュアル
+$('.bxslider').bxSlider({ //←Sは必ず大文字！決められた名前(関数)を指定
+mode: 'fade',//horizontalからautoに変換。動きのコントロールはjs、見た目のコントロールはcssから
+auto: true,
+infiniteLoop: false,
+controls: false,/* autoかcontrolどちらか。「,」なのはjqueryの中のjsなので*/
+pager: false,//画面の下にある黒い丸
+touchEnabled: false,//スマホ時のスクロールを無効(bxslider.jsのtouchより)
+});
+
+//外部ファイルを呼び出す。
+$('#news-list').load('news.txt');/* ←#付け忘れ注意！ */
+
+
+//カルーセル
+$('.bxslider2').bxSlider({/* bx2はulの場所と名前。後ろのSが大文字の方には2は付けない*/
+ticker: true,//jq.bxslider.jsからticker: false,をコピーで引っ張ってオン（true）にする
+speed: 50000,
+minSlides: 2,
+maxSlides: 6,
+slideWidth: 320,
+});
+
+
+//西暦の取得
+let fullyear = new Date().getFullYear();//FとYは必ず大文字！
+/* fullyear = 2026 ←確かめ用。フッターに2024-2026と表示される*/
+
+if(fullyear > 2024){//2024を超過したら
+$('#this-year').text('2024-' +fullyear);
+}else{
+$('#this-year').text(fullyear);
+}
+//2024 - その時の西暦
+
+
+//ナビゲーション
+//ナビゲーションをまず隠す(hide)
+$('#g-nav').hide();
+
+//↑いったん隠す
+
+//ハンバーガーボタン
+//#btnをon.clickしたら
+$('#btn').on('click',function(){
+$(this).toggleClass('is-active');//thisに''は入れない。toggleClassはキャメルケース
+$('#g-nav').fadeToggle(200);/* 200ミリ秒。スマホの場合はslideToggleも候補*/
+});
+
+
+//#g-nav aをon.clickしたら
+$('#g-nav a').on('click',function(){
+$('#g-nav').fadeOut(200);/* クリックするとナビゲーションが消える処理 */
+$('#btn').removeClass('is-active');/* マークをxから三に戻す(処理しないとボタン押した後もxのまま) */
+});
+
+
+
+
+
+
+}); 
+</script>
+
+</body>
+</html>
